@@ -1,0 +1,17 @@
+GraphDraw:
+
+<GraphDraw>:
+
+    BoxLayout:
+        Button:
+            text: "1. Import Files"
+            on_press: root.file_select()
+            background_color: (0.0, 0.5, 1.0, 1.0)
+        Button:
+            text: "2. Generate Database"
+            on_press: root.generate_database()
+            background_color: (1.0, 0.0, 0.5, 1.0)
+        Button:
+            text: "3. Run AI"
+            on_press: root.run_ai()
+            background_color: (1.0, 0, 0.0, 1.0)

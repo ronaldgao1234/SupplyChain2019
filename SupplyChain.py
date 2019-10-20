@@ -125,12 +125,12 @@ def analyzeFile(file_name : str, db):
     print(df)
     return df
 
-def main():
+def main(input_files, db):
     # Get csv files from a folder
     extension = 'csv'
     os.chdir(input_path)
     input_files = glob.glob('*.{}'.format(extension))
-    db = generateDatabase(10)  # arg is just length
+    # db = generateDatabase(10)  # arg is just length
     db.to_csv(original_database)   # overwrites csv
 
     for file_name in input_files:
@@ -141,6 +141,4 @@ def main():
     db.reset_index(inplace=True, drop=True)
     db = db.loc[:, ~db.columns.str.contains('^Unnamed')]
     db.to_csv(new_database)   # overwrites csv
-
-if __name__== "__main__":
-    main()
+    return db

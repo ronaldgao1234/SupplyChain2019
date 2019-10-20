@@ -3,10 +3,15 @@
 __Following steps are for Anaconda installations__
 
 1. Clone this project
-2. conda create -n yourenvname python=3.7 
-3. conda activate yourenvname
-4. go into the folder where you cloned the project. run $pip install -r requirements.txt
-5. python SupplyChain.py
+
+> conda create -n yourenvname python=3.7 
+
+> conda activate yourenvname
+4. go into the folder where you cloned the project. Run
+
+> $pip install -r requirements.txt
+
+> python SupplyChain.py
 
 ## Things to note
 - there are parameters to change inside SupplyChain.py like file locations

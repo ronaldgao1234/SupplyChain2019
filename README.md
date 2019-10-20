@@ -4,7 +4,9 @@ __Following steps are for Anaconda installations__
 
 1. Clone this project
 
-> conda create -n yourenvname python=3.7 
+```python
+conda create -n yourenvname python=3.7 
+```
 
 > conda activate yourenvname
 4. go into the folder where you cloned the project. Run

@@ -87,12 +87,10 @@ def phone_format(n):
 def value_method(data_col, db):
     '''checks which col of db has value'''
     value = data_col[0]
-    print(value)
     for c in db.columns:
         if str(value) in db[c].to_list():
             return pd.Series(data_col, name=c)
     return pd.Series([phone_format(str(x)) for x in data_col], name='Phone Number')
-
 
 def analyzeFile(file_name : str, db):
     '''Send Post Request of file, return a dataframe that you can append to database
@@ -124,7 +122,7 @@ def analyzeFile(file_name : str, db):
             print('Type error')
             pass
         df = pd.concat([df, new_column], axis=1)
-
+    print(df)
     return df
 
 def main():
@@ -132,7 +130,7 @@ def main():
     extension = 'csv'
     os.chdir(input_path)
     input_files = glob.glob('*.{}'.format(extension))
-    db = generateDatabase(5)  # arg is just length
+    db = generateDatabase(10)  # arg is just length
     db.to_csv(original_database)   # overwrites csv
 
     for file_name in input_files:

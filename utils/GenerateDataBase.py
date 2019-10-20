@@ -120,10 +120,17 @@ def generateRandomLocations(count=100):
     return result
 
 
-def generateUserId(count=100):
-    def makeId(): return ''.join(random.choice(string.digits) for _ in range(10))
-
-    return [makeId() for _ in range(count)]
+def generatePhoneNumber(count=100):
+    l = list()
+    def makeId():
+        return ''.join(random.choice(string.digits) for _ in range(10))
+    def phone_format(n):
+        return format(int(n[:-1]), ",").replace(",", "-") + n[-1]
+    while len(l) != count:
+        id = str(makeId())
+        if id[0] == '0': id[0] == '9'
+        l.append(phone_format(id))
+    return l
 
 
 def generateSGNs(count=100):
@@ -132,20 +139,17 @@ def generateSGNs(count=100):
     sgns = ['2024325165', '5604708139', '6615103222', '8835287208', '7622913289', '1814333750', '2286097042',
             '6584064527', '4817018328', '2493572310', '1488329390', '6408533139', '1282533127', '0907475130',
             '4694824237', '1981929724', '8231448388', '5950924397', '7826636506', '8003003043']
-    return [random.choice(sgns) for _ in range(count)]
-
+    return sgns[:9] + [random.choice(sgns) for _ in range(count-9)]
 
 def generateDatabase(count=100) -> pd.DataFrame:
     '''Generates a pd.DataFrame as a mock database'''
+    assert count >= 9
     db = pd.DataFrame({
         'Date': generateRandomDates(count),
         'Name': generateRandomNames(count),
         'Organization': generateRandomOrganizations(count),
         'Location': generateRandomLocations(count),
-        'Phone Number': generateUserId(count),
+        'Phone Number': generatePhoneNumber(count),
         'SGN': generateSGNs(count)
     })
     return db
-
-
-generateDatabase(5)

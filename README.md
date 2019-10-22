@@ -15,8 +15,10 @@ conda activate yourenvname
 pip install -r requirements.txt
 ````
 ```
-python SupplyChain.py
+python gui.py
 ```
+
+4. Make sure to change the parameters inside SupplyChain.py (file locations, etc.)
+
 ## Things to note
-- there are parameters to change inside SupplyChain.py like file locations
 - make sure that the database is at least 10 rows

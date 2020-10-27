@@ -89,7 +89,7 @@ botocore==1.12.253
 certifi==2019.9.11
 cffi==1.13.0
 chardet==3.0.4
-cryptography==2.7
+cryptography==3.2
 cycler==0.10.0
 dfgui==0.1
 docutils==0.15.2
